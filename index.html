@@ -242,13 +242,13 @@
       .section-heading { margin-bottom: 29px; text-align: left; }
       .section-heading p { font-size: .96rem; }
       h2 { font-size: 2.28rem; }
-      .quiz-section { padding: 58px 0; }
-      .quiz-layout { gap: 21px; }
-      .quiz-aside h2 { font-size: 2.15rem; }
-      .quiz-aside > p { margin-bottom: 12px; }
-      .quiz-points { gap: 8px; margin-top: 16px; font-size: .85rem; }
+      .quiz-section { padding: 40px 0 46px; }
+      .quiz-layout { gap: 10px; }
+      .quiz-aside h2 { margin-bottom: 10px; font-size: 1.95rem; }
+      .quiz-aside > p { margin-bottom: 9px; }
+      .quiz-points, .quiz-aside-art { display: none; }
       .quiz-card { min-height: 0; padding: 21px 18px; border-radius: 21px; }
-      .quiz-intro { min-height: 330px; }
+      .quiz-intro { min-height: 0; }
       .quiz-top { font-size: .77rem; }
       .quiz-question { font-size: 1.65rem; }
       .option span { min-height: 48px; font-size: .88rem; }
@@ -754,9 +754,9 @@
     <section class="quiz-section" id="quiz" aria-labelledby="quiz-title">
       <div class="wrap quiz-layout">
         <div class="quiz-aside">
-          <p class="section-kicker">Enem 2026 · roteiro de revisão</p>
-          <h2 id="quiz-title">Com tanta matéria para revisar, o que estudar primeiro?</h2>
-          <p>O guia em PDF transforma a revisão em um roteiro de 10 dias, com o que priorizar, quando praticar e como corrigir os erros. Responda a 4 perguntas para receber uma sugestão simples de por onde começar — não é prova nem avaliação.</p>
+          <p class="section-kicker">Quiz de foco · Enem 2026</p>
+          <h2 id="quiz-title">Você senta para estudar — e trava no primeiro passo?</h2>
+          <p>Em 4 perguntas, descubra o que te trava e receba uma ideia prática para a próxima sessão. Sem nota nem julgamento.</p>
           <ul class="quiz-points">
             <li><span class="checkmark" aria-hidden="true">✓</span> Sem cadastro nem pedido de contato</li>
             <li><span class="checkmark" aria-hidden="true">✓</span> Menos de 1 minuto para responder</li>
@@ -769,10 +769,10 @@
         <div class="quiz-card" aria-live="polite">
           <div class="quiz-intro" id="quiz-intro">
             <span class="quiz-badge">QUIZ DE FOCO · 1 MINUTO · SEM CADASTRO</span>
-            <h3>Encontre um ponto de partida para sua próxima sessão.</h3>
-            <p>Não é prova e não mede seu nível. Responda com sinceridade para receber uma sugestão simples, sem nota nem julgamento.</p>
-            <button class="button" type="button" id="quiz-start">Quero meu próximo passo <span class="arrow" aria-hidden="true">→</span></button>
-            <p class="quiz-small">Ao concluir, você libera o guia em PDF, páginas de amostra e a demonstração do app gratuito.</p>
+            <h3>Qual foco pode destravar sua próxima sessão?</h3>
+            <p>Quatro respostas rápidas. No final, uma sugestão prática para testar — sem certo ou errado.</p>
+            <button class="button" type="button" id="quiz-start">Quero descobrir meu foco <span class="arrow" aria-hidden="true">→</span></button>
+            <p class="quiz-small">Sua sugestão aparece no fim.</p>
           </div>
           <div class="quiz-flow" id="quiz-flow" hidden>
             <div class="quiz-top"><span id="quiz-count">Pergunta 1 de 4</span><button type="button" id="quiz-exit">Voltar ao início</button></div>
@@ -786,12 +786,12 @@
             </div>
           </div>
           <div class="quiz-result" id="quiz-result" hidden>
-            <span class="result-label">SUA IDEIA PARA COMEÇAR</span>
+            <span class="result-label">SEU PRÓXIMO PASSO</span>
             <h3 id="result-title"></h3>
             <p id="result-copy"></p>
-            <p class="result-note">É um ponto de partida baseado no que você escolheu; não mede seu nível nem prevê seu resultado.</p>
+            <p class="result-note">Use como ponto de partida: esta sugestão não mede seu nível nem prevê seu resultado no Enem.</p>
             <div class="result-actions">
-              <a class="button" href="#top" id="quiz-continue">Ver o guia completo <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="button" href="#top" id="quiz-continue">Quero ver como seguir <span class="arrow" aria-hidden="true">→</span></a>
               <button type="button" class="button button-quiet" id="quiz-restart">Tentar outra resposta</button>
             </div>
           </div>
@@ -1182,31 +1182,31 @@
     (() => {
       const questions = [
         {
-          title: 'Como está sua preparação para o Enem hoje?',
-          help: 'Escolha a resposta que mais parece com você hoje.',
-          options: ['Já comecei, mas tenho dificuldade de manter o ritmo.', 'Tenho uma rotina e quero aproveitá-la melhor.', 'Estou retomando os estudos agora.', 'Ainda não sei por onde começar.']
+          title: 'Como anda sua preparação para o Enem hoje?',
+          help: 'Escolha a resposta que mais parece com sua rotina agora.',
+          options: ['Já comecei, mas meu ritmo oscila.', 'Tenho uma rotina e quero aproveitar melhor meu tempo.', 'Estou retomando os estudos e preciso de um começo possível.', 'Tem tanta coisa para revisar que fico sem saber por onde começar.']
         },
         {
-          title: 'O que mais faria diferença no seu próximo estudo?',
-          help: 'Escolha sem pressão. Sua prioridade pode mudar depois.',
-          options: ['Saber por onde começar.', 'Revisar um assunto específico.', 'Manter um ritmo mais constante.', 'Sair da inércia com uma tarefa simples.']
+          title: 'Se saísse da próxima sessão com uma coisa mais clara, o que escolheria?',
+          help: 'Escolha o que mais aliviaria sua dúvida hoje.',
+          options: ['Qual assunto merece minha atenção primeiro.', 'Como praticar um tema e entender meus erros.', 'Como manter um ritmo de estudo que eu consiga seguir.', 'Como conectar as ideias para não só reler o conteúdo.']
         },
         {
-          title: 'O que mais costuma te travar na hora de estudar?',
-          help: 'É sobre sua experiência, não é um teste nem uma avaliação.',
-          options: ['Decidir o que fazer primeiro.', 'Encontrar tempo para estudar.', 'Manter o ritmo durante a semana.', 'Escolher o que vale revisar.']
+          title: 'O que mais costuma te travar quando você senta para estudar?',
+          help: 'Pense no que se repete, não no que você acha que deveria responder.',
+          options: ['Pulo entre assuntos tentando escolher o certo.', 'Faço exercícios, mas não entendo por que erro.', 'Começo com vontade e depois perco a constância.', 'Leio e releio, mas não sei o que realmente ficou.']
         },
         {
-          title: 'O que você quer conhecer primeiro?',
-          help: 'Sua resposta só indica o que você prefere ver primeiro.',
-          options: ['O guia de 10 dias em PDF.', 'Os mapas e redações-modelo.', 'O bônus do app Desafia.', 'Como o material se organiza.']
+          title: 'Depois de uma boa sessão, o que você gostaria de poder dizer?',
+          help: 'Escolha a frase que mais faria você sentir que avançou.',
+          options: ['“Já sei o que estudar primeiro na próxima sessão.”', '“Entendi um erro e sei o que praticar para corrigi-lo.”', '“Consegui manter um ritmo sem me esgotar.”', '“Consigo explicar as ideias sem depender da releitura.”']
         }
       ];
       const results = [
-        { title: 'Comece com uma prioridade concreta.', copy: 'O guia propõe um diagnóstico curto para identificar lacunas reais e escolher o que merece atenção nos próximos dias.' },
-        { title: 'Alterne revisão, prática e correção.', copy: 'O guia sugere revisar por pouco tempo, resolver questões sem consulta e corrigir os erros por causa — conceito, leitura, cálculo, tempo ou distração.' },
-        { title: 'Use os 10 dias com intenção.', copy: 'O roteiro distribui Redação, Matemática, Natureza, Linguagens e Humanas, além de simulado enxuto, logística e descanso.' },
-        { title: 'Recapitule com os mapas.', copy: 'Os mapas numerados ajudam a reconstruir os assuntos de memória; os checklists apoiam a revisão final sem prometer um resultado específico.' }
+        { title: 'Comece com uma escolha menor — e mais clara.', copy: 'Quando tudo parece importante, a dúvida pode pesar mais que a tarefa. Escolha um tema e uma tarefa curta para a próxima sessão; depois, veja como levar esse foco para uma revisão organizada.' },
+        { title: 'Use o erro como pista do que praticar.', copy: 'Em vez de olhar só para “acertou ou errou”, procure a causa: conteúdo, leitura, cálculo ou distração. Isso ajuda a escolher um exercício ligado à sua dúvida; continue para ver como organizar esse ciclo.' },
+        { title: 'Encontre um ritmo que caiba na sua vida real.', copy: 'Uma sessão possível de repetir é um começo mais sustentável que uma maratona. Defina um bloco que caiba na sua semana e um momento para retomá-lo; avance para ver como transformar essa intenção em sequência.' },
+        { title: 'Tente reconstruir o tema sem olhar.', copy: 'O que você consegue explicar mostra o que está firme; o que trava revela o que merece outra passada. Conecte as ideias que lembrar e veja como retomar o assunto com mais clareza.' }
       ];
       const intro = document.getElementById('quiz-intro');
       const flow = document.getElementById('quiz-flow');
