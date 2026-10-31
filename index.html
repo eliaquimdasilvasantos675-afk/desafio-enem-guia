@@ -745,7 +745,7 @@
         <a href="#materiais">O que vem no PDF</a>
         <a href="#app">App Desafia</a>
         <a href="#perguntas">Perguntas</a>
-        <a class="button purchase-cta header-cta" href="#materiais" aria-label="Ver o conteúdo do guia · R$ 19,90"><span class="cta-long">Ver o conteúdo do guia · R$ 19,90</span><span class="cta-short" aria-hidden="true">Ver guia · R$ 19,90</span> <span class="arrow" aria-hidden="true">→</span></a>
+        <a data-checkout-cta class="button purchase-cta header-cta" href="#materiais" aria-label="Ver o conteúdo do guia · R$ 19,90"><span class="cta-long">Ver o conteúdo do guia · R$ 19,90</span><span class="cta-short" aria-hidden="true">Ver guia · R$ 19,90</span> <span class="arrow" aria-hidden="true">→</span></a>
       </nav>
     </div>
   </header>
@@ -817,7 +817,7 @@
             <li><strong>2</strong><span>redações-modelo analisadas</span></li>
           </ul>
           <div class="hero-actions">
-            <a class="button purchase-cta" href="#materiais">Ver o conteúdo do guia · R$ 19,90 <span class="arrow" aria-hidden="true">→</span></a>
+            <a data-checkout-cta class="button purchase-cta" href="#materiais">Ver o conteúdo do guia · R$ 19,90 <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button-light" href="#veja-por-dentro">Ver páginas por dentro <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -1159,7 +1159,7 @@
                 <li><b>18</b> questões</li>
                 <li><b>2</b> redações-modelo</li>
               </ul>
-              <a class="button purchase-cta offer-cta" href="#materiais">Ver o conteúdo do guia <span class="arrow" aria-hidden="true">→</span></a>
+              <a data-checkout-cta class="button purchase-cta offer-cta" href="#materiais">Ver o conteúdo do guia <span class="arrow" aria-hidden="true">→</span></a>
               <a class="offer-secondary" href="#veja-por-dentro">Ver páginas por dentro ↑</a>
               <p class="offer-trust">PDF digital · 60 páginas de conteúdo + 22 de suplemento visual</p>
             </aside>
@@ -1195,7 +1195,7 @@
     </div>
   </footer>
 
-  <div class="mobile-cta offer-gate" aria-label="Acesso rápido" hidden inert><a class="button purchase-cta" href="#materiais">Ver o conteúdo do guia · R$ 19,90 <span class="arrow" aria-hidden="true">→</span></a></div>
+  <div class="mobile-cta offer-gate" aria-label="Acesso rápido" hidden inert><a data-checkout-cta class="button purchase-cta" href="#materiais">Ver o conteúdo do guia · R$ 19,90 <span class="arrow" aria-hidden="true">→</span></a></div>
 
   <script>
     (() => {
@@ -1513,6 +1513,18 @@
       dlg.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') show(index + 1);
         if (e.key === 'ArrowLeft') show(index - 1);
+      });
+    })();
+  </script>
+  <script>
+    /* LINK DE CHECKOUT: cole aqui a URL do checkout (ex.: "https://pay.exemplo.com/..."). Enquanto estiver vazio, os botões levam ao conteúdo do guia. */
+    window.DESAFIA_CHECKOUT_URL = "";
+    (function () {
+      var url = (window.DESAFIA_CHECKOUT_URL || "").trim();
+      if (!/^https:\/\//i.test(url)) return;
+      document.querySelectorAll('[data-checkout-cta]').forEach(function (a) {
+        a.setAttribute('href', url);
+        a.setAttribute('rel', 'noopener');
       });
     })();
   </script>
