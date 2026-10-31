@@ -702,6 +702,12 @@
     .offer-specs b { display:block; color:#fff; font-size:1.2rem; font-weight:850; }
     .offer-price .offer-cta { width:100%; min-height:56px; justify-content:center; font-size:1rem; }
     .offer-secondary { display:inline-block; margin-top:13px; color:#e6ddf0; font-size:.84rem; font-weight:700; text-underline-offset:3px; }
+    .offer-fee { margin:0 0 14px; color:#e9dfc4; font-size:.82rem; line-height:1.45; }
+    .offer-totals { display:grid; gap:8px; margin:0 0 20px; padding:0; list-style:none; text-align:left; }
+    .offer-totals li { display:grid; grid-template-columns:auto 1fr; gap:2px 10px; align-items:baseline; padding:10px 12px; border:1px solid rgba(255,255,255,.12); border-radius:12px; background:rgba(255,255,255,.04); }
+    .offer-totals span { color:#cfc5dc; font-size:.78rem; font-weight:750; }
+    .offer-totals b { color:#fff; font-size:.95rem; font-weight:850; text-align:right; }
+    .offer-totals small { grid-column:1 / -1; color:#bfb4cd; font-size:.74rem; line-height:1.4; }
     .offer-trust { margin:14px 0 0; padding-top:14px; border-top:1px solid rgba(255,255,255,.1); color:#a99eb7; font-size:.74rem; line-height:1.5; }
     @media (max-width:900px) {
       .offer-body { grid-template-columns:1fr; }
@@ -747,7 +753,7 @@
         <a href="#materiais">O que vem no PDF</a>
         <a href="#app">App Desafia</a>
         <a href="#perguntas">Perguntas</a>
-        <a data-checkout-cta class="button purchase-cta header-cta" href="#materiais" aria-label="Conhecer o guia"><span class="cta-long">Conhecer o guia</span><span class="cta-short" aria-hidden="true">Ver guia</span> <span class="arrow" aria-hidden="true">→</span></a>
+        <a data-checkout-cta class="button purchase-cta header-cta" href="https://pay.cakto.com.br/xfwwhbg_1265558" rel="noopener" aria-label="Comprar o guia em PDF"><span class="cta-long">Comprar o guia</span><span class="cta-short" aria-hidden="true">Comprar</span> <span class="arrow" aria-hidden="true">→</span></a>
       </nav>
     </div>
   </header>
@@ -813,7 +819,7 @@
             <p><span class="hero-app-tag">Complemento gratuito</span><strong>Desafia ENEM 2026</strong>App público e sem custo, à parte do PDF, para continuar treinando.</p>
           </div>
           <div class="hero-actions">
-            <a data-checkout-cta class="button purchase-cta" href="#materiais">Ver o conteúdo do guia <span class="arrow" aria-hidden="true">→</span></a>
+            <a data-checkout-cta class="button purchase-cta" href="https://pay.cakto.com.br/xfwwhbg_1265558" rel="noopener">Comprar o guia em PDF <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button-light" href="#veja-por-dentro">Ver páginas por dentro <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -1140,11 +1146,16 @@
             </div>
 
             <aside class="offer-price" aria-label="Valor do guia">
-              <span class="offer-price-label">Valor do guia completo</span>
+              <span class="offer-price-label">Preço do guia · pagamento único</span>
               <p class="offer-price-value"><small>R$</small>19<span>,90</span></p>
-              <a data-checkout-cta class="button purchase-cta offer-cta" href="#materiais">Ver o conteúdo do guia <span class="arrow" aria-hidden="true">→</span></a>
+              <p class="offer-fee">+ R$ 0,99 de taxa de serviço da plataforma Cakto, cobrada no checkout</p>
+              <ul class="offer-totals" aria-label="Total a pagar por forma de pagamento">
+                <li><span>Pix</span><b>R$ 20,89</b><small>total</small></li>
+                <li><span>Cartão de crédito</span><b>R$ 20,89 à vista</b><small>ou até 4x de R$ 5,88 (total R$ 23,52, com juros do parcelamento)</small></li>
+              </ul>
+              <a data-checkout-cta class="button purchase-cta offer-cta" href="https://pay.cakto.com.br/xfwwhbg_1265558" rel="noopener">Comprar o guia em PDF <span class="arrow" aria-hidden="true">→</span></a>
               <a class="offer-secondary" href="#veja-por-dentro">Ver páginas por dentro ↑</a>
-              <p class="offer-trust">PDF digital em A4 · suplemento visual incluído</p>
+              <p class="offer-trust">Pagamento por Pix ou cartão de crédito, processado pela Cakto · PDF digital em A4 · suplemento visual incluído</p>
             </aside>
           </div>
         </article>
@@ -1178,7 +1189,7 @@
     </div>
   </footer>
 
-  <div class="mobile-cta offer-gate" aria-label="Acesso rápido" hidden inert><a data-checkout-cta class="button purchase-cta" href="#materiais">Conhecer o guia <span class="arrow" aria-hidden="true">→</span></a></div>
+  <div class="mobile-cta offer-gate" aria-label="Acesso rápido" hidden inert><a data-checkout-cta class="button purchase-cta" href="https://pay.cakto.com.br/xfwwhbg_1265558" rel="noopener">Comprar o guia · R$ 19,90 + taxa <span class="arrow" aria-hidden="true">→</span></a></div>
 
   <script>
     (() => {
@@ -1500,8 +1511,8 @@
     })();
   </script>
   <script>
-    /* LINK DE CHECKOUT: cole aqui a URL do checkout (ex.: "https://pay.exemplo.com/..."). Enquanto estiver vazio, os botões levam ao conteúdo do guia. */
-    window.DESAFIA_CHECKOUT_URL = "";
+    /* LINK DE CHECKOUT (Cakto): os botões de compra usam esta URL. */
+    window.DESAFIA_CHECKOUT_URL = "https://pay.cakto.com.br/xfwwhbg_1265558";
     (function () {
       var url = (window.DESAFIA_CHECKOUT_URL || "").trim();
       if (!/^https:\/\//i.test(url)) return;
